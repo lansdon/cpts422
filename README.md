@@ -1,4 +1,3 @@
-cpts422
-=======
-
-Turing machine app that will be tested.
+Turing Machine Application
+By Lansdon Page
+CPTS_322 - Spring 2013 - WSU
