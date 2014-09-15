@@ -1,0 +1,30 @@
+This is a test of my parser to see if this is working on a linux system.
+
+adding extra lines and everything
+
+
+	States: s0 s1 s2 s3 s4 
+
+
+Input_Alphabet: a b
+
+
+
+Tape_Alphabet: a b X Y -
+
+		Transition_Function:
+s0 a s1 X R
+s0 Y s3 Y R
+s1 a s1 a R
+			s1 b s2 Y L s1 Y s1 Y R
+s2 a s2 a L
+s2 X s0 X R
+s2 Y s2 Y L
+s2 Y s3 Y R
+s3 Y s3 Y R
+s3 - s4 - R
+
+initial_state: s0
+
+blank_character: -
+final_states: s4
