@@ -16,7 +16,7 @@ namespace TMSharp
             {
                 line = definition[0];
 
-                if (nextKey == null || !line.ToUpper().Contains(nextKey))  // prior to INPUT_ALPHABET: keyword
+                if (nextKey == null || !line.ToUpper().Contains(nextKey))
                 {
                     definition.RemoveAt(0);
                     foreach (string s in line.Split(' '))
