@@ -124,7 +124,7 @@ namespace TMSharp
                     desc_substr = line.Substring(0, keyword_start);
                     keyword = line.Substring(keyword_start, 7);
                     if(line.Length > desc_substr.Length + keyword.Length)
-                        rest_of_line = line.Substring(keyword_start + 7, line.Length - 1);
+                        rest_of_line = line.Substring(keyword_start + 7, line.Length - (keyword_start + 7));
                 }			
 
 			    // search for first VALID keyword.
@@ -150,7 +150,7 @@ namespace TMSharp
             return (valid && description_complete);
         }
 
-        private bool LoadInitialState(ref List<string> definitionLines)
+        public bool LoadInitialState(ref List<string> definitionLines)
         {
             List<string> results;
             if(TMParse.ParseDefinitionValues(ref definitionLines, "BLANK_CHARACTER:", out results))
@@ -181,6 +181,9 @@ namespace TMSharp
         /////////////////////////////////////////////////
         public bool loadDefinition(string filename)
         {
+            if (filename == null || filename.Length <= 4)
+                return false;
+
             bool valid = true;
 
             List<string> definitionLines = new List<string>();
