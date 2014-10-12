@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using LPTest;
 using TMSharp;
 
-
 namespace TMSharpTests
 {
     [LPTestClass]
@@ -41,6 +40,53 @@ namespace TMSharpTests
         {
             List<string> definition = TMTestDefinitions.ValidDefinition(0);
             TestDefinition(definition);
+        }
+        [LPTestMethod]
+        ///////////////////////////////////////////////////////////////
+        //Test method:              CheckForDuplicateStates
+        //Verify Requirement:       4.2.1.4a from Requirements Document
+        ///////////////////////////////////////////////////////////////
+        public void ParseDefinition_CheckForDuplicateStates()
+        {
+            List<string> invalid_definition = new List<string>()
+            {
+                "STATES: S1 S1",
+                "INPUT_ALPHABET:"
+            };
+
+            States test_state = new States();
+            try
+            {
+                test_state.load(ref invalid_definition);
+                throw new Exception("Duplicate unhandled.  Exception failed to throw.");
+            }
+            catch (ArgumentException ae)
+            {
+                Assert.Equals("Duplicate State was detected, terminating Turing Machine.", ae.Message);
+            }
+            catch (Exception e)
+            {
+                Assert.Fail(e.Message);
+            }
+        }
+
+        ///////////////////////////////////////////////////////////////
+        //Test method:              CheckForCaseSensitivity
+        //Verify Requirement:       4.2.1.4b from Requirements Document
+        ///////////////////////////////////////////////////////////////
+        [LPTestMethod]
+        public void ParseDefinition_CheckCaseSensitivityForStates()
+        {
+            List<string> definition = new List<string>()
+            {
+                "STATES: state1 STATE1",
+                "INPUT_ALPHABET:"
+            };
+
+            States test_state = new States();
+            test_state.load(ref definition);
+            Assert.IsTrue(test_state.is_element("state1"));
+            Assert.IsTrue(test_state.is_element("STATE1"));
         }
 
         [LPTestMethod]
