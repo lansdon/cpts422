@@ -11,6 +11,8 @@ namespace TMSharpTests
     [LPTestClass]
     class ParseTests
     {
+        public ParseTests() { }    // Must have a default constructor for LPTest
+        
         private List<string> ValidDefinition1 = new List<string>() 
         {
             "description stuff1",
@@ -33,7 +35,6 @@ namespace TMSharpTests
             "BLANK_CHARACTER: -",
             "FINAL_STATES: s4"
         };
-        public ParseTests() { }    // Must have a default constructor for LPTest
 
         [LPTestMethod]
         public void ParseDefinition_Valid0()
@@ -41,6 +42,7 @@ namespace TMSharpTests
             List<string> definition = TMTestDefinitions.ValidDefinition(0);
             TestDefinition(definition);
         }
+
         [LPTestMethod]
         ///////////////////////////////////////////////////////////////
         //Test method:              CheckForDuplicateStates
@@ -50,7 +52,7 @@ namespace TMSharpTests
         {
             List<string> invalid_definition = new List<string>()
             {
-                "STATES: S1 S1",
+                "S1 S1",
                 "INPUT_ALPHABET:"
             };
 
@@ -58,7 +60,7 @@ namespace TMSharpTests
             try
             {
                 test_state.load(ref invalid_definition);
-                throw new Exception("Duplicate unhandled.  Exception failed to throw.");
+                Assert.Fail("Duplicate unhandled.  Exception failed to throw.");
             }
             catch (ArgumentException ae)
             {
@@ -79,7 +81,7 @@ namespace TMSharpTests
         {
             List<string> definition = new List<string>()
             {
-                "STATES: state1 STATE1",
+                "state1 STATE1",
                 "INPUT_ALPHABET:"
             };
 
@@ -94,25 +96,8 @@ namespace TMSharpTests
         {
             List<string> definition = new List<string>() 
             {
-                //"description stuff1",
-                //"description stuff2",     // Assume definition was already extracted
-                "STATES: S1 S2 S3 S4",
+                "S1 S2 S3 S4",
                 "INPUT_ALPHABET: a b",      // Need to have next keyword so it's detected
-                //"TAPE_ALPHABET: a b x y -",
-                //"TRANSITION_FUNCTION:",
-                //"s0 a   s1 X R",
-                //"s0 Y   s3 Y R",
-                //"s1 a   s1 a R",
-                //"s1 b   s2 Y L",
-                //"s1 Y   s1 Y R", 
-                //"s2 a   s2 a L",
-                //"s2 X   s0 X R",
-                //"s2 Y   s2 Y L",
-                //"s3 Y   s3 Y R",
-                //"s3 -   s4 - R",
-                //"INITIAL_STATE: s0",
-                //"BLANK_CHARACTER: -",
-                //"FINAL_STATES: s4"
             };
             States states = new States();
             Assert.IsTrue(states.load(ref definition), "Failed to parse states.");
@@ -127,12 +112,22 @@ namespace TMSharpTests
         {
             List<string> definition = new List<string>() 
             {
-                "STATES: ",
+                " ",
                 "INPUT_ALPHABET: a b",      // Need to have next keyword so it's detected
             };
             States states = new States();
             Assert.IsFalse(states.load(ref definition), "Should fail to parse states.");
         }
+
+
+
+
+
+
+
+        /// <summary>
+        /// Generic function for testing a full definition file after it's been loaded
+        /// </summary>
         private Tape tape = new Tape();
         private FinalStates final_states = new FinalStates();
         private InputAlphabet input_alphabet = new InputAlphabet();

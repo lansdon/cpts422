@@ -19,7 +19,7 @@ namespace TMSharp
                 if (nextKey == null || !line.ToUpper().Contains(nextKey))
                 {
                     definition.RemoveAt(0);
-                    foreach (string s in line.Split(' '))
+                    foreach (string s in line.Split())
                     {
                         if (s.Length > 0)
                             results.Add(s);
@@ -27,7 +27,11 @@ namespace TMSharp
                 }
                 else
                 {
-                    definition[0] = line.Substring(line.LastIndexOf(nextKey) + nextKey.Length, line.Length - nextKey.Length);
+                    // Remove the next keyword and put back everything after it into the current line.
+                    int keywordIndex = line.LastIndexOf(nextKey);
+                    int nextKeyLength = nextKey.Length;
+                    int leftoverLength = line.Length - keywordIndex - nextKeyLength;
+                    definition[0] = line.Substring(line.LastIndexOf(nextKey) + nextKey.Length, line.Length - line.LastIndexOf(nextKey) - nextKey.Length);
                     return true;
                 }
             }

@@ -214,7 +214,7 @@ namespace TMSharp
             {
                 Console.WriteLine("TM Definition loaded successfully...\n");
                 valid = true;
-            } 
+            }
             else
             {
                 Console.WriteLine("TM Definition failed to load.\n");
