@@ -19,7 +19,7 @@ namespace TMSharp
         {
             _transitions = new List<Transition>();
             List<string> results;
-            if(TMParse.ParseDefinitionValues(ref definition, "INITIAL_STATE:", out results))
+            if(TMParse.ParseDefinitionValues(ref definition, "INITIAL_STATE:", out results) && results.Count() >= 1)
             {
                 for (int i = 0; i < results.Count(); ++i )
                 {

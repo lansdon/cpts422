@@ -155,7 +155,7 @@ namespace TMSharp
             List<string> results;
             if(TMParse.ParseDefinitionValues(ref definitionLines, "BLANK_CHARACTER:", out results))
             {
-                if (states.is_element(results[0]))
+                if (results.Count() > 0 && states.is_element(results[0]))
                 {
                     initial_state = results[0];
                     return true;

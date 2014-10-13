@@ -37,7 +37,7 @@ namespace TMSharp
         public bool load(ref List<string> definition) 
         {
             List<string> results;
-            if (TMParse.ParseDefinitionValues(ref definition, "FINAL_STATES:", out results))
+            if (TMParse.ParseDefinitionValues(ref definition, "FINAL_STATES:", out results) && results.Count() >= 1)
             {
                 string blank = results[0];
                 if (
