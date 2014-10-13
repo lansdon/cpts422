@@ -50,13 +50,13 @@ namespace TMSharpTests
         {
             List<string> definition = new List<string>()
             {
-                "STATES: S1 S1",
+                "S1 S1",
                 "INPUT_ALPHABET:"
             };
 
             States test_state = new States();
 
-            Assert.IsFalse(test_state.load(ref definition));
+            Assert.IsFalse(test_state.load(ref definition), "Failed to detect duplicate states.");
         }
 
         ///////////////////////////////////////////////////////////////
@@ -68,7 +68,7 @@ namespace TMSharpTests
         {
             List<string> definition = new List<string>()
             {
-                "STATES: state1 STATE1",
+                "state1 STATE1",
                 "INPUT_ALPHABET:"
             };
 
@@ -94,7 +94,7 @@ namespace TMSharpTests
 
             States test_state = new States();
 
-            Assert.IsFalse(test_state.load(ref definition));
+            Assert.IsFalse(test_state.load(ref definition), "Failed to detect null states in definition file.");
 
         }
 
@@ -113,7 +113,7 @@ namespace TMSharpTests
 
             States test_state = new States();
 
-            Assert.IsFalse(test_state.load(ref definition));
+            Assert.IsFalse(test_state.load(ref definition), "Failed to detect invalid input alphabet character.");
         }
 
         ///////////////////////////////////////////////////////////////
@@ -131,7 +131,7 @@ namespace TMSharpTests
 
             InputAlphabet test_inputalphabet = new InputAlphabet();
 
-            Assert.IsFalse(test_inputalphabet.load(ref definition));
+            Assert.IsFalse(test_inputalphabet.load(ref definition), "Failed to detect improper length of input alphabet element.");
         }
 
         ///////////////////////////////////////////////////////////////
@@ -149,7 +149,7 @@ namespace TMSharpTests
 
             InputAlphabet test_inputalphabet = new InputAlphabet();
 
-            Assert.IsFalse(test_inputalphabet.load(ref definition));
+            Assert.IsFalse(test_inputalphabet.load(ref definition), "Failed to detect duplicate input alphabet characters.");
         }
 
         [LPTestMethod]
