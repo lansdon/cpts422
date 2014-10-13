@@ -1,3 +1,10 @@
+ _____            _                                 _     _            
+/__   \_   _ _ __(_)_ __   __ _    /\/\   __ _  ___| |__ (_)_ __   ___ 
+  / /\/ | | | '__| | '_ \ / _` |  /    \ / _` |/ __| '_ \| | '_ \ / _ \
+ / /  | |_| | |  | | | | | (_| | / /\/\ \ (_| | (__| | | | | | | |  __/
+ \/    \__,_|_|  |_|_| |_|\__, | \/    \/\__,_|\___|_| |_|_|_| |_|\___|
+                          |___/                                        
+
 This readme file is a guide to the deliverables for Assignment 4: Model-Based Testing for CPTS422 / Team 2.
 
 Team 2: Lansdon Page, Jason Stidham, Jason Wong, Ryan Wilson
