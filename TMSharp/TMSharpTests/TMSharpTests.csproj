@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LPParseTests.cs" />
     <Compile Include="LPTest\LPTest.cs" />
     <Compile Include="LPTest\SampleTest.cs" />
     <Compile Include="ParseTests.cs" />
