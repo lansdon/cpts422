@@ -19,12 +19,12 @@ namespace TMSharp
         {
             _transitions = new List<Transition>();
             List<string> results;
-            if(TMParse.ParseDefinitionValues(ref definition, "INITIAL_STATE:", out results))
+            if(TMParse.ParseDefinitionValues(ref definition, "INITIAL_STATE:", out results) && results.Count() >= 1)
             {
                 for (int i = 0; i < results.Count(); ++i )
                 {
                     //                    List<string> splits = new List<string>(line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
-                    if (results.Count() >= 5)
+                    if (results.Count() >= 5 && results.Count() % 5 == 0)
                     {
                         string source = results[i];
                         string current_char = results[++i];

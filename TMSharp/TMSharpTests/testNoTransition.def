@@ -1,0 +1,14 @@
+pqowiefhpoiqwefj definition stuff and things a's and b's launaguagge followed by same number
+of number of b's and stuff. STATES:
+s0 s1 s2 s3 s4
+
+INPUT_ALPHABET: a b
+
+TAPE_ALPHABET: a b X Y -
+
+
+INITIAL_STATE: s0
+
+BLANK_CHARACTER: -
+
+FINAL_STATES: s4

@@ -19,7 +19,7 @@ namespace TMSharp
         {
             _alphabet = new List<char>();
             List<string> tmpValues;
-            if (TMParse.ParseDefinitionValues(ref definition, "TRANSITION_FUNCTION:", out tmpValues))
+            if (TMParse.ParseDefinitionValues(ref definition, "TRANSITION_FUNCTION:", out tmpValues) && tmpValues.Count() >= 1)
             {
                 foreach (string s in tmpValues)
                 {

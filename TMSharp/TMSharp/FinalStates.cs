@@ -19,7 +19,7 @@ namespace TMSharp
         {
             final_states = new List<string>();
             List<string> tmpValues;
-            if (TMParse.ParseDefinitionValues(ref definition, null, out tmpValues))
+            if (TMParse.ParseDefinitionValues(ref definition, null, out tmpValues) && tmpValues.Count() >= 1)
             {
                 foreach (string s in tmpValues)
                 {
