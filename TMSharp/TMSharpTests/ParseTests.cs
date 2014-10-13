@@ -46,35 +46,24 @@ namespace TMSharpTests
         [LPTestMethod]
         ///////////////////////////////////////////////////////////////
         //Test method:              CheckForDuplicateStates
-        //Verify Requirement:       4.2.1.4a from Requirements Document
+        //Test ID:                  5.2.1
         ///////////////////////////////////////////////////////////////
         public void ParseDefinition_CheckForDuplicateStates()
         {
-            List<string> invalid_definition = new List<string>()
+            List<string> definition = new List<string>()
             {
                 "S1 S1",
                 "INPUT_ALPHABET:"
             };
 
             States test_state = new States();
-            try
-            {
-                test_state.load(ref invalid_definition);
-                Assert.Fail("Duplicate unhandled.  Exception failed to throw.");
-            }
-            catch (ArgumentException ae)
-            {
-                Assert.Equals("Duplicate State was detected, terminating Turing Machine.", ae.Message);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(e.Message);
-            }
+
+            Assert.IsFalse(test_state.load(ref definition));
         }
 
         ///////////////////////////////////////////////////////////////
         //Test method:              CheckForCaseSensitivity
-        //Verify Requirement:       4.2.1.4b from Requirements Document
+        //Test ID:                  5.2.2
         ///////////////////////////////////////////////////////////////
         [LPTestMethod]
         public void ParseDefinition_CheckCaseSensitivityForStates()
@@ -89,6 +78,80 @@ namespace TMSharpTests
             test_state.load(ref definition);
             Assert.IsTrue(test_state.is_element("state1"));
             Assert.IsTrue(test_state.is_element("STATE1"));
+        }
+
+        ///////////////////////////////////////////////////////////////
+        //Test method:              CheckForAtLeastOneState
+        //Test ID:                  5.2.3
+        ///////////////////////////////////////////////////////////////
+        [LPTestMethod]
+
+        public void ParseDefinition_CheckForAtLeastOneState()
+        {
+            List<string> definition = new List<string>()
+            {
+                "",
+                "INPUT_ALPHABET:"
+            };
+
+            States test_state = new States();
+
+            Assert.IsFalse(test_state.load(ref definition));
+
+        }
+
+        ///////////////////////////////////////////////////////////////
+        //Test method:              CheckForValidStateCharacters
+        //Test ID:                  5.2.4
+        ///////////////////////////////////////////////////////////////
+        [LPTestMethod]
+        public void ParseDefinition_CheckForValidStateCharacters()
+        {
+            List<string> definition = new List<string>()
+            {
+                "$",
+                "INPUT_ALPHABET:"
+            };
+
+            States test_state = new States();
+
+            Assert.IsFalse(test_state.load(ref definition));
+        }
+
+        ///////////////////////////////////////////////////////////////
+        //Test method:              CheckThatElementsAreLengthOne
+        //Test ID:                  5.2.5
+        ///////////////////////////////////////////////////////////////
+        [LPTestMethod]
+        public void ParseDefinition_CheckThatElementsAreLengthOne()
+        {
+            List<string> definition = new List<string>()
+            {
+                "ab",
+                "TAPE_ALPHABET:"
+            };
+
+            InputAlphabet test_inputalphabet = new InputAlphabet();
+
+            Assert.IsFalse(test_inputalphabet.load(ref definition));
+        }
+
+        ///////////////////////////////////////////////////////////////
+        //Test method:              CheckForDuplicateInputAlphabetCharacters
+        //Test ID:                  5.2.6
+        ///////////////////////////////////////////////////////////////
+        [LPTestMethod]
+        public void ParseDefinition_CheckForDuplicateInputAlphabetCharacters()
+        {
+            List<string> definition = new List<string>()
+            {
+                "a a",
+                "TAPE_ALPHABET:"
+            };
+
+            InputAlphabet test_inputalphabet = new InputAlphabet();
+
+            Assert.IsFalse(test_inputalphabet.load(ref definition));
         }
 
         [LPTestMethod]
