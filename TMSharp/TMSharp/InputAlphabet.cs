@@ -22,7 +22,7 @@ namespace TMSharp
             alphabet = new List<char>();
             string line = null;
             List<string> tmpValues;
-            if (TMParse.ParseDefinitionValues(ref definition, "TAPE_ALPHABET:", out tmpValues))
+            if (TMParse.ParseDefinitionValues(ref definition, "TAPE_ALPHABET:", out tmpValues) && tmpValues.Count() >= 1)
             {
                 foreach (string s in tmpValues)
                 {
