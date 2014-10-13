@@ -19,7 +19,7 @@ namespace TMSharp
                 if (nextKey == null || !line.ToUpper().Contains(nextKey))
                 {
                     definition.RemoveAt(0);
-                    foreach (string s in line.Split())
+                    foreach (string s in line.Trim().Split())
                     {
                         if (s.Length > 0)
                             results.Add(s);

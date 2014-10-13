@@ -31,7 +31,7 @@ namespace TMSharpTests
         {
 
             TuringMachine tm = new TuringMachine("");
-            Assert.IsTrue(tm.loadDefinition("validTest.def"), "Test 5.1.1 failed, Valid defintion not loaded.");
+            Assert.IsTrue(tm.loadDefinition("testValid.def"), "Test 5.1.1 failed, Valid defintion not loaded.");
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace TMSharpTests
         {
 
             TuringMachine tm = new TuringMachine("");
-            Assert.IsFalse(tm.loadDefinition("noStateTest.def"), "Test 5.1.2 failed, States found.");
+            Assert.IsFalse(tm.loadDefinition("testNoState.def"), "Test 5.1.2 failed, States found.");
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace TMSharpTests
         {
 
             TuringMachine tm = new TuringMachine("");
-            Assert.IsFalse(tm.loadDefinition("noInputTest.def"), "Test 5.1.3 failed, Input characters found.");
+            Assert.IsFalse(tm.loadDefinition("testNoInput.def"), "Test 5.1.3 failed, Input characters found.");
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace TMSharpTests
         {
 
             TuringMachine tm = new TuringMachine("");
-            Assert.IsFalse(tm.loadDefinition("noTapeTest.def"), "Tests 5.1.4 failed, Tape characters found");
+            Assert.IsFalse(tm.loadDefinition("testNoTape.def"), "Tests 5.1.4 failed, Tape characters found");
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace TMSharpTests
         {
 
             TuringMachine tm = new TuringMachine("");
-            Assert.IsFalse(tm.loadDefinition("noTransitionTest.def"), "Test 5.1.5 failed, Transitions found.");
+            Assert.IsFalse(tm.loadDefinition("testNoTransition.def"), "Test 5.1.5 failed, Transitions found.");
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace TMSharpTests
         {
 
             TuringMachine tm = new TuringMachine("");
-            Assert.IsFalse(tm.loadDefinition("noInitialTest.def"), "Test 5.1.6 failed, Initial character found.");
+            Assert.IsFalse(tm.loadDefinition("testNoInitial.def"), "Test 5.1.6 failed, Initial character found.");
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace TMSharpTests
         {
 
             TuringMachine tm = new TuringMachine("");
-            Assert.IsFalse(tm.loadDefinition("noBlankTest.def"), "Test 5.1.7 failed, Blank character found.");
+            Assert.IsFalse(tm.loadDefinition("testNoBlank.def"), "Test 5.1.7 failed, Blank character found.");
         }
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace TMSharpTests
         {
 
             TuringMachine tm = new TuringMachine("");
-            Assert.IsFalse(tm.loadDefinition("noFinalTest.def"), "Test 5.1.8 failed, Final states found.");
+            Assert.IsFalse(tm.loadDefinition("testNoFinal.def"), "Test 5.1.8 failed, Final states found.");
         }       
     }
 }

@@ -127,7 +127,7 @@ namespace TMSharpTests
         {
             List<string> definition = new List<string>() 
             {
-                "STATES: ",
+                " ",
                 "INPUT_ALPHABET: a b",      // Need to have next keyword so it's detected
             };
             States states = new States();
