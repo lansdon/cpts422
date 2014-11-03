@@ -12,15 +12,15 @@ namespace LPTest
     /// !!! WARNING: A test class must have a public constructor that takes no args
     /// </summary>
     [System.AttributeUsage(System.AttributeTargets.Class)]
-    public class LPTestClass : System.Attribute
+    public class TestFixture : System.Attribute
     {
     }
 
     /// <summary>
-    /// Any test case in a LPTestClass must have this attribute.
+    /// Any test case in a TestFixture must have this attribute.
     /// </summary>
     [System.AttributeUsage(System.AttributeTargets.Method)]
-    public class LPTestMethod : System.Attribute
+    public class Test : System.Attribute
     { 
     }
 
@@ -49,8 +49,8 @@ namespace LPTest
     }
 
     /// <summary>
-    /// This is a custom testing class. It will search for all classes with LPTestClass attribute.
-    /// Inside those classes, it will run all the methods with LPTestMethod attribute.
+    /// This is a custom testing class. It will search for all classes with TestFixture attribute.
+    /// Inside those classes, it will run all the methods with Test attribute.
     /// </summary>
     public class LPTest
     {
@@ -98,24 +98,24 @@ namespace LPTest
         }
 
         /// <summary>
-        /// Find every class with LPTestClass attribute. Inside those classes, find every method with LPTestMethod attribute.
+        /// Find every class with TestFixture attribute. Inside those classes, find every method with Test attribute.
         /// </summary>
         /// <returns></returns>
         static private List<MethodInfo> FindAllTests()
         {
-            // Search for Classes with LPTestClass attribute that contain methods with LPTestMethod
+            // Search for Classes with TestFixture attribute that contain methods with Test
             Assembly assembly = Assembly.GetExecutingAssembly();
             List<MethodInfo> tests = new List<MethodInfo>();
             foreach (Type type in assembly.GetTypes())
             {
-                if (type.GetCustomAttributes(typeof(LPTestClass), true).Length > 0)
+                if (type.GetCustomAttributes(typeof(TestFixture), true).Length > 0)
                 {
                     var methods = type.GetMethods();
 
-                    // Search the test class for all methods with LPTestMethod attribute.
+                    // Search the test class for all methods with Test attribute.
                     foreach (var method in methods)
                     {
-                        if (method.GetCustomAttributes(typeof(LPTestMethod), true).Length > 0)
+                        if (method.GetCustomAttributes(typeof(Test), true).Length > 0)
                         {
                             tests.Add(method);
                         }

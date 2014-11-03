@@ -141,6 +141,7 @@ namespace TMSharp
 		           (_transitions[i].ReadCharacter == read_char)) {
 			        destination_state = _transitions[i].DestinationState;
 			        write_character = _transitions[i].WriteCharacter;
+                    move_direction = _transitions[i].MoveDirection;
 			        return true;
 		        }
 	        }

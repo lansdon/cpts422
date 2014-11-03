@@ -7,7 +7,7 @@
 
 //namespace maxit_tests
 //{
-//    [LPTestClass]
+//    [TestFixture]
 //    public class SampleTest
 //    {
 //        /// <summary>
@@ -17,13 +17,13 @@
 //        {
 //        }
 
-//        [LPTestMethod]
+//        [Test]
 //        public void SampleTestSucceed()
 //        {
 //            Assert.IsTrue( true );
 //        }
 
-//        [LPTestMethod]
+//        [Test]
 //        public void SampleTestFail()
 //        {
 //            Assert.IsTrue(false, "Example of something failing."); 

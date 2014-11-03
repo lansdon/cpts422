@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NUnit.TMSharpTests
+{
+    using NUnit.Framework;
+
+    [TestFixture]
+    public class NUnitTest
+    {
+
+        [Test]
+        public void Test1()
+        {
+            Assert.IsTrue(true);
+        }
+    }
+}

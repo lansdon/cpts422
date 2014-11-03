@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TMSharp;
-using LPTest;
+using NUnit.Framework;
 
 namespace TMSharpTests
 {
-    [LPTestClass]
+    [TestFixture]
     class DefFileLoaderTests
     {
         /// <summary>
@@ -26,7 +26,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.1.1 - Parse definition - check valid
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void TestDefinitionValid()
         {
 
@@ -37,7 +37,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.1.2 - Parse definition - check no state
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void TestDefinitionNoState()
         {
 
@@ -48,7 +48,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.1.3 - Parse definition - check no input
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void TestDefinitionNoInput()
         {
 
@@ -59,7 +59,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.1.4 - Parse definition - check no tape
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void TestDefinitionNoTape()
         {
 
@@ -70,7 +70,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.1.5 - Parse definition - check no transition
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void TestDefinitionNoTransition()
         {
 
@@ -81,7 +81,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.1.6 - Parse definition - check no initial
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void TestDefinitionNoInitial()
         {
 
@@ -92,7 +92,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.1.7 - Parse definition - check no blank
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void TestDefinitionNoBlank()
         {
 
@@ -103,7 +103,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.1.8 - Parse definition - check no final
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void TestDefinitionNoFinal()
         {
 

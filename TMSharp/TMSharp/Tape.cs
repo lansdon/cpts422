@@ -138,7 +138,7 @@ namespace TMSharp
 
         public string right(uint maximum_number_of_cells)
         {
-            int endCell = (int)_cells.Length;
+            int endCell = (int)_cells.Length-1;
             while ((endCell >= _currentCell) && (_cells[endCell] == _blank)) 
             {
                 --endCell;

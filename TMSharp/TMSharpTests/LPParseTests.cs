@@ -8,7 +8,7 @@ using TMSharp;
 
 namespace TMSharpTests
 {
-    [LPTestClass]
+    [TestFixture]
     class LPParseTests
     {
         public LPParseTests() { }
@@ -17,7 +17,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.2.10 - ParseDefinition_TransFunct_Valid
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_TransFunct_Valid()
         {
             List<string> definition = new List<string>() 
@@ -36,7 +36,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.2.11 - ParseDefinition_TransFunct_InvalidFieldCount
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_TransFunct_InvalidFieldCount()
         {
             List<string> definition = new List<string>() 
@@ -51,7 +51,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.2.12 - ParseDefinition_TransFunct_InvalidChar
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_TransFunct_InvalidChar()
         {
             List<string> definition = new List<string>() 
@@ -95,7 +95,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.2.13 - ParseDefinition_InitState_TooManyStates
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_InitState_TooManyStates()
         {
             List<string> definition = new List<string>() 
@@ -110,7 +110,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.2.14 - ParseDefinition_BlankChar_NotInAlphabet
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_BlankChar_NotInAlphabet()
         {
             List<string> definition = new List<string>() 
@@ -148,7 +148,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.2.15 - ParseDefinition_FinalStates_NoStates
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_FinalStates_NoStates()
         {
             List<string> definition = new List<string>() 
@@ -162,7 +162,7 @@ namespace TMSharpTests
         /// <summary>
         /// 5.2.16 - ParseDefinition_FinalStates_NotInStates
         /// </summary>
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_FinalStates_NotInStates()
         {
             List<string> definition = new List<string>() 

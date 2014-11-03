@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LPTest;
 using TMSharp;
+using NUnit.Framework;
 
 namespace TMSharpTests
 {
-    [LPTestClass]
+    [TestFixture]
     class ParseTests
     {
         private List<string> ValidDefinition1 = new List<string>() 
@@ -35,13 +35,13 @@ namespace TMSharpTests
         };
         public ParseTests() { }    // Must have a default constructor for LPTest
 
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_Valid0()
         {
             List<string> definition = TMTestDefinitions.ValidDefinition(0);
             TestDefinition(definition);
         }
-        [LPTestMethod]
+        [Test]
         ///////////////////////////////////////////////////////////////
         //Test method:              CheckForDuplicateStates
         //Test ID:                  5.2.1
@@ -63,7 +63,7 @@ namespace TMSharpTests
         //Test method:              CheckForCaseSensitivity
         //Test ID:                  5.2.2
         ///////////////////////////////////////////////////////////////
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_CheckCaseSensitivityForStates()
         {
             List<string> definition = new List<string>()
@@ -82,7 +82,7 @@ namespace TMSharpTests
         //Test method:              CheckForAtLeastOneState
         //Test ID:                  5.2.3
         ///////////////////////////////////////////////////////////////
-        [LPTestMethod]
+        [Test]
 
         public void ParseDefinition_CheckForAtLeastOneState()
         {
@@ -102,7 +102,7 @@ namespace TMSharpTests
         //Test method:              CheckForValidStateCharacters
         //Test ID:                  5.2.4
         ///////////////////////////////////////////////////////////////
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_CheckForValidStateCharacters()
         {
             List<string> definition = new List<string>()
@@ -120,7 +120,7 @@ namespace TMSharpTests
         //Test method:              CheckThatElementsAreLengthOne
         //Test ID:                  5.2.5
         ///////////////////////////////////////////////////////////////
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_CheckThatElementsAreLengthOne()
         {
             List<string> definition = new List<string>()
@@ -138,7 +138,7 @@ namespace TMSharpTests
         //Test method:              CheckForDuplicateInputAlphabetCharacters
         //Test ID:                  5.2.6
         ///////////////////////////////////////////////////////////////
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_CheckForDuplicateInputAlphabetCharacters()
         {
             List<string> definition = new List<string>()
@@ -152,7 +152,7 @@ namespace TMSharpTests
             Assert.IsFalse(test_inputalphabet.load(ref definition), "Failed to detect duplicate input alphabet characters.");
         }
 
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_ValidStates()
         {
             List<string> definition = new List<string>() 
@@ -185,7 +185,7 @@ namespace TMSharpTests
             Assert.IsTrue(states.is_element("S4"), "S4 not found");
         }
 
-        [LPTestMethod]
+        [Test]
         public void ParseDefinition_InvalidStates()
         {
             List<string> definition = new List<string>() 
