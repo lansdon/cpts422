@@ -176,13 +176,21 @@ namespace TMSharp
         bool set() {
 	        Console.WriteLine( "Maximum number of transitions[{0}]:", config.MaxTransitions);
 	        string input_string = Console.ReadLine();
-	        uint new_value = Convert.ToUInt32(input_string);
-	        if(input_string.Length == new_value.ToString().Length && new_value > 0) {
-		        config.MaxTransitions = new_value;
-		        Console.WriteLine( "\nMax transitions changed.\n");
-		        return true;
-	        }
-	        if(input_string.Length > 0)
+            uint new_value = 0;
+            try
+            {
+                new_value = Convert.ToUInt32(input_string);
+            }
+            catch
+            {
+            }
+            if ( input_string.Length == new_value.ToString().Length && new_value > 0)
+            {
+                config.MaxTransitions = new_value;
+                Console.WriteLine("\nMax transitions changed.\n");
+                return true;
+            }
+            if (input_string.Length > 0)
 		        Console.WriteLine( "\nError - Max transitions must be a integer from 1 to " + uint.MaxValue + "\n");
 
 	        return false;
@@ -330,9 +338,17 @@ namespace TMSharp
          */
         bool truncate() {
 	        Console.WriteLine( "Maximum ID chars per side[" + config.MaxIdChars + "]: ");
-	        string input_string = Console.ReadLine();;
-	        uint new_value = Convert.ToUInt32(input_strings);
-	        if(input_string.Length == new_value.ToString().Length && new_value > 0) {
+	        string input_string = Console.ReadLine();
+            uint new_value = 0;
+            try
+            {
+                new_value = Convert.ToUInt32(input_string);
+            }
+            catch
+            {
+            } 
+            if (input_string.Length == new_value.ToString().Length && new_value > 0)
+            {
 		        config.MaxIdChars = new_value;
 		        Console.WriteLine( "\nMax ID chars changed.\n");
 		        return true;
