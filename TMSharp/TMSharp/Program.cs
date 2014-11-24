@@ -12,7 +12,7 @@ namespace TMSharp
         {
 
 	        // Acquire filename passed as argument
-	        string filename = "test";
+	        string filename = "../test";
 	        if (args.Count() == 2) {
 		        filename = args[1];
 	        } else {

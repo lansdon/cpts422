@@ -37,8 +37,8 @@ namespace TMSharp
 
         // runs the menu system
         public bool menuLoop() {
-	        displayMenu();
-	        return processUserCommand();
+//	        displayMenu();
+	        return processUserCommand() && !shouldExit;
         }
 
 
@@ -116,15 +116,20 @@ namespace TMSharp
             char[] CRLF = new char[2] { '\n', '\r' };
             try
             {
-                TextReader tr = File.OpenText(filename);
-                string line;
-                while((line = tr.ReadLine()) != null)
+                using(TextReader tr = File.OpenText(filename))
                 {
-		            if(tm.is_valid_input_string(line)) {
-			            input_strings.Add(line);
-		            } else {
-			            Console.WriteLine( "- Invalid input string ignored (\"" + line + "\")\n" );
-		            }
+                    string line;
+                    while ((line = tr.ReadLine()) != null)
+                    {
+                        if ((tm.is_valid_input_string(line) || line == "\\") && line.Length > 0 && !input_strings.Contains(line))
+                        {
+                            input_strings.Add(line);
+                        }
+                        else
+                        {
+                            Console.WriteLine("- Invalid input string ignored (\"" + line + "\")\n");
+                        }
+                    }
                 }
             }
             catch (FileNotFoundException e)
@@ -206,6 +211,7 @@ namespace TMSharp
          */
         void help() {
 	        config.HelpOn = !config.HelpOn;
+            displayMenu();
         }
 
 
@@ -251,6 +257,9 @@ namespace TMSharp
          \  is used to input blank string
         */
         void list() {
+            if(config.HelpOn)
+                Console.WriteLine("(L)ist - Display list of input strings <super awesoemer help here>\n");
+
 	        Console.WriteLine( "\nInput Strings:\n");
 	
 	        // empty list message
