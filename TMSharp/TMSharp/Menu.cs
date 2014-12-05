@@ -63,8 +63,9 @@ namespace TMSharp
 			        case 'T': truncate(); break;
 			        case 'V': view(); break;
 			        case 'W': show(); break;
-			        case 'X': exit(); break;
-			        default:
+                    case 'X': exit(); break;
+                    case 'Z': Zombie(); break;
+                    default:
 				        Console.WriteLine( "Invalid selection\n" );		// error
 				        return processUserCommand();
 		        }
@@ -385,6 +386,27 @@ namespace TMSharp
         */
         void view() {
 	        tm.view_definition();
+        }
+
+        private void Zombie()
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine("             (()))");
+            Console.WriteLine("            /|x x| ");
+            Console.WriteLine("            /|x x|");
+            Console.WriteLine("            /|x x|");
+            Console.WriteLine("           /\\( - )        ");
+            Console.WriteLine("   ___.-._/\\/     ");
+            Console.WriteLine("  /=`_'-'-'/  !!        ");
+            Console.WriteLine("  |-{-_-_-}     !                       ");
+            Console.WriteLine("  (-{-_-_-}    !                                                            ");
+            Console.WriteLine("   \\{_-_-_}   !                                                             ");
+            Console.WriteLine("    }-_-_-}                                                                 ");
+            Console.WriteLine("    {-_|-_}                                                                 ");
+            Console.WriteLine("    {-_|_-}                                                                 ");
+            Console.WriteLine("    {_-|-_}                                                                 ");
+            Console.WriteLine("    {_-|-_}  ZOT                                                            ");
+            Console.WriteLine("____%%@ @%%_______                                                         \n\n ");
         }
 
         /*
